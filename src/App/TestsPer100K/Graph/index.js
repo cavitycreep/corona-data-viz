@@ -29,7 +29,7 @@ const Graph = ({
 
     return (
         <>
-            <Title>US Coronavirus Tests Per 100,000 County Residents</Title>
+            <Title>COVID-19 Viral Tests Performed Per 100,000 Residents</Title>
             <div className={styles.Graph}>
                 <Choropleth
                     data={data}
@@ -42,9 +42,9 @@ const Graph = ({
                     colorScale={quantileScale}
                 />
                 <Sources>
-                    <span>https://www.census.gov/</span>
-                    <span>https://coronadatascraper.com/</span>
-                    <span>https://github.com/yahoo/covid-19-data/</span>
+                    <span>census.gov</span>
+                    <span>coronadatascraper.com</span>
+                    <span>github.com/yahoo/covid-19-data</span>
                 </Sources>
             </div>
         </>
