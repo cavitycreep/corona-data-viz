@@ -14,7 +14,7 @@ const { createLarge } = require("../batch/pool");
 self.addEventListener("message", async (event) => { // eslint-disable-line no-restricted-globals
     if(event.data.target === LARGE_WORKER_NAME && event.data.command === "start") {
         console.log("LargeWorker parses and encodes large rows");
-        const largeRows = await csv("/timeseries.csv");
+        const largeRows = await csv("/coronadatascraper.csv");
         const refinedLargeRows = largeRows.filter((row) => row.country === "United States" && row.level === "county")
         const largeRowsArray = encodeUTF16Array(refinedLargeRows);
         const results = await createLarge(LARGE_WORKER_NAME, "LargeWorker", event.data.payload, largeRowsArray);

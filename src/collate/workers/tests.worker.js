@@ -14,7 +14,7 @@ const { createTests } = require("../batch/pool");
 self.addEventListener("message", async (event) => { // eslint-disable-line no-restricted-globals
     if(event.data.target === TESTS_WORKER_NAME && event.data.command === "start") {
         console.log("TestsWorker parses and encodes test rows");
-        const testRows = await tsv("/total_tests_per_county.tsv");
+        const testRows = await tsv("/yahoo.tsv");
         const testRowsArray = encodeUTF16Array(testRows);
         const results = await createTests(TESTS_WORKER_NAME, "TestsWorker", event.data.payload, testRowsArray);
 

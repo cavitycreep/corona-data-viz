@@ -24,7 +24,7 @@ self.addEventListener("message", async (event) => { // eslint-disable-line no-re
     try {
         if(event.data.target === COLLATE_WORKER_NAME && event.data.command === "start") {
             console.log("CollateWorker is parsing");
-            const populationRows = await csv("/us_counties.csv");
+            const populationRows = await csv("/census.csv");
             const refinedPopulationRows = batchMap(populationRows, (populationRow) => getCountyData(populationRow)).filter(Boolean);
 
             console.log("CollateWorker is encoding");

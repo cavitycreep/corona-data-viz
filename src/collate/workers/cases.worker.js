@@ -16,7 +16,7 @@ self.addEventListener("message", async (event) => { // eslint-disable-line no-re
         const { getCaseData } = require("../files/cases");
 
         console.log("CasesWorker is parsing");
-        const caseRows = await csv("/total_covid_cases_per_county.csv");
+        const caseRows = await csv("/nyt.csv");
 
         console.log("CasesWorker is decoding");
         const populationRowsView = new Uint16Array(event.data.payload);

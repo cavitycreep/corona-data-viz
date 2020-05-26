@@ -1,19 +1,22 @@
-import {
+const {
     LEGEND_CONTENT_LENGTH,
-} from "./constants";
+} = require("./constants");
 
-export const forLegend = (content, n) => {
+export const forLegend = (content) => {
     const trimmed = content.replace(/(\s{2,}|\t|\n)/g, " ");
     const words = trimmed.split(" ");
     const split = [];
     while(words.length) {
         let line = "";
 
-        while(line.length < LEGEND_CONTENT_LENGTH) {
+        while(true) {
             const word = words.shift();
 
-            if(word) {
+            if(word && line.length + word.length <= LEGEND_CONTENT_LENGTH) {
                 line += `${word} `;
+            } else if(word) {
+                words.unshift(word);
+                break;
             } else {
                 break;
             }

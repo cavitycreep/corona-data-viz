@@ -25,4 +25,4 @@ export const COLLATE_WORKER_NAME = "workers.collate";
 export const LARGE_WORKER_NAME = "workers.large";
 export const TESTS_WORKER_NAME = "workers.tests";
 
-export const LEGEND_CONTENT_LENGTH = 19;
+export const LEGEND_CONTENT_LENGTH = 24;

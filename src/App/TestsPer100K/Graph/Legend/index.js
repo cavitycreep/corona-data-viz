@@ -27,10 +27,19 @@ const Legend = ({
             colorLegend(svg);
             createdLegend(true);
 
-            const noDataGroup = svg.select("g.legendCells")
-                .append("g")
+            const legendGroup = svg.select("g.legendCells");
+            const firstBucketGroup = legendGroup.selectAll("g.cell").filter((d, i) => i === 0);
+            const firstBucketText = firstBucketGroup.select("text")
+                .text("Fewer than 1000");
+
+            const noDataGroup = legendGroup.append("g")
                 .attr("class", "cell")
                 .attr("transform", "translate(0, 188)");
+
+            const noDataBgRect = noDataGroup.append("rect")
+                .attr("width", "120px")
+                .attr("height", "10px")
+                .style("fill", "transparent");
 
             const noDataRect = noDataGroup.append("rect")
                 .attr("height", "15")
@@ -43,13 +52,12 @@ const Legend = ({
                 .text(d => "No data");
 
             const noDataNote = noDataGroup.append("text")
-                .attr("width", "15")
                 .attr("class", "label")
                 .attr("x", "0")
                 .attr("y", "0")
-                .attr("transform", "translate(110, 30)")
+                .attr("width", "120px")
+                .attr("transform", "translate(120, 30)")
                 .attr("style", "font-size: 10px");
-
 
             const spanSplit = (content) => forLegend(content).map(
                 (text) => noDataNote
@@ -60,32 +68,8 @@ const Legend = ({
                     .attr("text-anchor", "end")
             );
 
-            const noDataTSpans = spanSplit("No organization has publicly \
-            distributed this data, if any are even collecting it.");
-            // noDataNote
-            //     .append("tspan")
-            //     .text("")
-            //     .attr("x", "0")
-            //     .attr("dy", "1.2em")
-            //     .attr("text-anchor", "end")
-            // noDataNote
-            //     .append("tspan")
-            //     .text("")
-            //     .attr("x", "0")
-            //     .attr("dy", "1.2em")
-            //     .attr("text-anchor", "end");
-            // noDataNote
-            //     .append("tspan")
-            //     .text("")
-            //     .attr("x", "0")
-            //     .attr("dy", "1.2em")
-            //     .attr("text-anchor", "end");
-            // noDataNote
-            //     .append("tspan")
-            //     .text("")
-            //     .attr("x", "0")
-            //     .attr("dy", "1.2em")
-            //     .attr("text-anchor", "end");
+            const noDataTSpans = spanSplit("County level testing data has not yet been distributed in a digitized format; \
+            state and local governments may print their numbers, but do so in an unusable format for data visualizations.");
         }
     }, [
         data,
