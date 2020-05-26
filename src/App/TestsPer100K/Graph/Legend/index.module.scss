@@ -1,0 +1,17 @@
+.Legend {
+    display: flex;
+    align-items: center;
+    flex-shrink: 1;
+    overflow: hidden;
+    width: 130px;
+    margin-left: 1.5em;
+    margin-top: 15%;
+  }
+
+.Svg {
+    height: 100%;
+
+    text {
+        font-size: 12px;
+    }
+}

@@ -1,0 +1,12 @@
+.Sources {
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+
+    & > span {
+        font-size: 9px;
+    }
+}
