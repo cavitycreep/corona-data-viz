@@ -1,0 +1,11 @@
+svg {
+    g.legendCells {
+        transform: translateY(20px);
+    }
+
+    text.legendTitle {
+        font-weight: bold;
+        font-size: 9px;
+        transform: translateY(10px);
+    }
+}

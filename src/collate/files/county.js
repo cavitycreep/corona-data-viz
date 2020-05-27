@@ -11,10 +11,6 @@ export const getCountyData = (populationRow) => {
         [DATA_KEY_POPULATION]: populationString,
     } = populationRow;
 
-    if(state === county) {
-        return;
-    }
-
     const fips = `${stateFips}${countyFips}`;
     const population = parseInt(populationString, 10);
 

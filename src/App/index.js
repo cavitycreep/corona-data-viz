@@ -8,7 +8,7 @@ import {
 import CollateWorker from "worker-loader!../collate/workers/collate.worker.js"; // eslint-disable-line import/no-webpack-loader-syntax
 import download from "../utils/download";
 import message from "../utils/message";
-import TestsPer100K from "./TestsPer100K";
+import TestsPer100K from "./StateTestsPer100K";
 
 import styles from "./index.module.scss";
 
@@ -25,7 +25,8 @@ const App = ({
         if(event.data.target === "base"
         && event.data.subject === COLLATE_WORKER_NAME
         && event.data.command === "done") {
-          download(event.data.payload);
+          download(event.data.payload.mergedCounties, "merged_counties");
+          download(event.data.payload.mergedStates, "merged_states");
         }
       }
 

@@ -24,5 +24,6 @@ export const CASES_WORKER_NAME = "workers.cases";
 export const COLLATE_WORKER_NAME = "workers.collate";
 export const LARGE_WORKER_NAME = "workers.large";
 export const TESTS_WORKER_NAME = "workers.tests";
+export const STATES_WORKER_NAME = "workers.states";
 
 export const LEGEND_CONTENT_LENGTH = 24;

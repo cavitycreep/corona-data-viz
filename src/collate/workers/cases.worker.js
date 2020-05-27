@@ -7,14 +7,13 @@ const {
 } = require("../../utils/constants");
 
 const { decodeUTF16String } = require("../../utils/utf16");
+const { getCaseData } = require("../files/cases");
 
 const message = require("../../utils/message").default;
 const batchMap = require("../../utils/batch/map").default;
 
 self.addEventListener("message", async (event) => { // eslint-disable-line no-restricted-globals
     if(event.data.target === CASES_WORKER_NAME && event.data.command === "start") {
-        const { getCaseData } = require("../files/cases");
-
         console.log("CasesWorker is parsing");
         const caseRows = await csv("/nyt.csv");
 
